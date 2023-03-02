@@ -92,7 +92,7 @@ class _ImageSider_ScreenState extends State<ImageSider_Screen> {
                       SizedBox(height: 1.h,),
                       DotsIndicator(
                         dotsCount: home_providert!.d1.length,
-                        position: home_providert!.i.toDouble(),
+                        position: home_providert!.l.toDouble(),
                       ),
                       SizedBox(height: 1.h,),
                       Container(
