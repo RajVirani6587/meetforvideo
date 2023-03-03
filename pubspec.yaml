@@ -46,6 +46,9 @@ dependencies:
   intl: ^0.18.0
   permission_handler: ^10.2.0
   cool_nav: ^0.1.0
+  face_camera: ^0.0.6
+
+
 
 dev_dependencies:
   flutter_test:

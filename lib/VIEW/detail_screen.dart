@@ -75,9 +75,16 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                           Color((0xFFFFFFFF)).withOpacity(0.5),
                         ],
                       ),
-                      child:Padding(
-                        padding:  EdgeInsets.only(top: 5.h,left: 4.w),
-                        child: Align(alignment: Alignment.topLeft,child: Text("Detail",style: TextStyle(color: Colors.white,fontSize: 15.sp,fontWeight: FontWeight.w700),)),
+                      child:Column(
+                        children: [
+                          Padding(
+                            padding:  EdgeInsets.only(top: 5.h,left: 4.w),
+                            child: Align(alignment: Alignment.topLeft,child: Text("Detail",style: TextStyle(color: Colors.white,fontSize: 15.sp,fontWeight: FontWeight.w700),)),
+                          ),
+                          SizedBox(height: 2.h,),
+                          Container(height: 18.h,width: 100.w,color: Colors.white),
+                          SizedBox(height: 2.h,),
+                        ],
                       ),
                     ),
                   ],
@@ -91,8 +98,6 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                     child: Column(
                       children: [
                         SizedBox(height: 15.h,),
-                        Container(height: 18.h,width: 100.w,color: Colors.white),
-                        SizedBox(height: 2.h,),
                         Padding(
                           padding:  EdgeInsets.symmetric(horizontal:5.w),
                           child: TextFormField(
@@ -300,14 +305,14 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                           child: InkWell(
                             onTap: (){
                               if(txtkey.currentState!.validate() == true && f1.path.isEmpty==false){
-                                  txt m1 = txt(
+                                  txt n1 = txt(
                                     age: txtage.text,
                                     image: f1.path,
                                     name: txtname.text,
                                     countey: txtcountry.text,
                                     gender: txtgender.text,
                                   );
-                                  Navigator.pushReplacementNamed(context,'yourself');
+                                  Navigator.pushReplacementNamed(context,'yourself',arguments: n1);
                               }
                               else{
                                 showDialog(

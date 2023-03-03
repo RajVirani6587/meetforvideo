@@ -76,7 +76,7 @@ class _Videocall_ScreenState extends State<Videocall_Screen > {
                           year: home_providerf!.l1[index].year,
                           video:home_providerf!.l1[index].video,
                         );
-                        Navigator.pushNamed(context,'');
+                        Navigator.pushNamed(context,'vplay');
                     },
                     child: Column(
                       children: [

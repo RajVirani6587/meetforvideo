@@ -1,3 +1,4 @@
+import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:meetforvideo/PROVIDER/provider_screen.dart';
 import 'package:meetforvideo/VIEW/First_time.dart';
@@ -9,13 +10,18 @@ import 'package:meetforvideo/VIEW/getstarted_screen.dart';
 import 'package:meetforvideo/VIEW/image_siderscreen.dart';
 import 'package:meetforvideo/VIEW/intro_Screen.dart';
 import 'package:meetforvideo/VIEW/permission_screen.dart';
+import 'package:meetforvideo/VIEW/post/post_screen.dart';
+import 'package:meetforvideo/VIEW/profile/profile_screen.dart';
 import 'package:meetforvideo/VIEW/splash_screen.dart';
 import 'package:meetforvideo/VIEW/videocall_screen/video_call_screen.dart';
+import 'package:meetforvideo/VIEW/videocall_screen/videoplay_screen.dart';
 import 'package:meetforvideo/VIEW/yourself_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
-void main(){
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await FaceCamera.initialize();
   runApp(
     MultiProvider(
       providers: [
@@ -38,6 +44,9 @@ void main(){
                 'bottom':(context)=>Bottom_Bar_Screen(),
                 'video':(context)=>Videocall_Screen(),
                 'best':(context)=>Best_screen(),
+                'post':(context)=>Post_Screen(),
+                'profile':(context)=>Profile_Screen(),
+                'vplay':(context)=>VideoPlay_Screen(),
               },
           );
         },

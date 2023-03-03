@@ -101,6 +101,7 @@ class _Best_screenState extends State<Best_screen> {
                                    borderRadius: BorderRadius.circular(10.sp)
                                ),
                                child: Stack(
+                                 alignment: Alignment.bottomRight,
                                  children: [
                                    ClipRRect(borderRadius: BorderRadius.circular(10.sp),
                                      child: Image.asset("${home_providerf!.l1[index].Image}",
@@ -109,6 +110,7 @@ class _Best_screenState extends State<Best_screen> {
                                        width: 48.w,
                                      ),
                                    ),
+                                   Text("${home_providerf!.l1[index].Name}",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700),)
                                  ],
                                ),
                              ),
@@ -127,7 +129,7 @@ class _Best_screenState extends State<Best_screen> {
                Expanded(
                  child: GridView.builder(
                    itemCount: home_providerf!.l1.length,
-                   gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3 ,mainAxisExtent: 32.h),
+                   gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3 ,mainAxisExtent: 27.h),
                    itemBuilder: (context,index){
                      return  Padding(
                        padding:  EdgeInsets.all(5.sp),
@@ -151,7 +153,7 @@ class _Best_screenState extends State<Best_screen> {
                          child: Column(
                            children: [
                              Container(
-                               height:30.h,
+                               height:25.h,
                                decoration: BoxDecoration(
                                    boxShadow: [
                                      BoxShadow(
@@ -162,14 +164,16 @@ class _Best_screenState extends State<Best_screen> {
                                    borderRadius: BorderRadius.circular(10.sp)
                                ),
                                child: Stack(
+                                 alignment: Alignment.center,
                                  children: [
                                    ClipRRect(borderRadius: BorderRadius.circular(10.sp),
-                                     child: Image.asset("${home_providerf!.l1[index].Image}",
+                                     child: Image.asset("${home_providerf!.l1[index].Image2}",
                                        fit: BoxFit.fill,
-                                       height:35.h,
+                                       height:34.h,
                                        width: 48.w,
                                      ),
                                    ),
+                                   Image.asset("assets/image/icon.png",height: 5.h,width: 5.h,fit: BoxFit.fill,),
                                  ],
                                ),
                              ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meetforvideo/MODEL/slider_imagescreen.dart';
 import 'package:sizer/sizer.dart';
 
 class Yourself_Screen extends StatefulWidget {
@@ -12,6 +13,8 @@ class _Yourself_ScreenState extends State<Yourself_Screen> {
   int cnt = 0;
   @override
   Widget build(BuildContext context) {
+    txt n1 = ModalRoute.of(context)!.settings.arguments as txt;
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Stack(
@@ -166,7 +169,7 @@ class _Yourself_ScreenState extends State<Yourself_Screen> {
                         children: [
                           InkWell(
                             onTap: (){
-                                Navigator.pushNamed(context,'permission');
+                                Navigator.pushNamed(context,'permission',arguments: n1);
                             },
                             child: Container(
                               height: 7.h,
@@ -180,7 +183,7 @@ class _Yourself_ScreenState extends State<Yourself_Screen> {
                           ),
                           InkWell(
                             onTap: (){
-                              Navigator.pushNamed(context,'permission');
+                              Navigator.pushNamed(context,'permission',arguments: n1);
                             },
                             child: Container(
                               height: 7.h,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:meetforvideo/MODEL/slider_imagescreen.dart';
 import 'package:sizer/sizer.dart';
 
 class GETSTARTED_Screen extends StatefulWidget {
@@ -12,6 +13,7 @@ class GETSTARTED_Screen extends StatefulWidget {
 class _GETSTARTED_ScreenState extends State<GETSTARTED_Screen> {
   @override
   Widget build(BuildContext context) {
+    txt n1 = ModalRoute.of(context)!.settings.arguments as txt;
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -64,7 +66,7 @@ class _GETSTARTED_ScreenState extends State<GETSTARTED_Screen> {
                      Text("Waiting for something special.",style: TextStyle(color: Colors.white,fontSize: 10.sp,letterSpacing: 2),),
                      SizedBox(height: 4.h,),
                      InkWell(onTap: (){
-                       Navigator.pushReplacementNamed(context,'');
+                       Navigator.pushReplacementNamed(context,'bottom',arguments: n1);
                        showCustomDialog(context);
                      },child: Icon(Icons.arrow_forward,size:35.sp,color: Colors.white,)),
                    ],
@@ -122,20 +124,15 @@ class _GETSTARTED_ScreenState extends State<GETSTARTED_Screen> {
                   Text("You must be 18 years old or over to enter.",textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 15.sp,color: Colors.white,decoration: TextDecoration.none),),
                   SizedBox(height: 1.h,),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      height: 7.h,
-                      width: 80.w,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFFF4D67),
-                          borderRadius: BorderRadius.circular(10.sp)
-                      ),
-                      child: Center(
-                        child: Text("I am 18 or older-Enter",style: TextStyle(color: Colors.white,fontSize: 15.sp,decoration: TextDecoration.none),),
-                      ),
+                  Container(
+                    height: 7.h,
+                    width: 80.w,
+                    decoration: BoxDecoration(
+                        color: Color(0xF000000),
+                        borderRadius: BorderRadius.circular(10.sp)
+                    ),
+                    child: Center(
+                      child: Text("I am 18 or older-Enter",style: TextStyle(color: Colors.white,fontSize: 15.sp,decoration: TextDecoration.none),),
                     ),
                   ),
                   SizedBox(height: 2.h,),
