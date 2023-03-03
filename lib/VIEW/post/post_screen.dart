@@ -116,7 +116,42 @@ class _Post_ScreenState extends State<Post_Screen> {
                                     Text("${home_providerf!.l1[index].Name}",style: TextStyle(color: Colors.white,fontSize: 15.sp,fontWeight: FontWeight.w700),),
                                   ],
                                 ),
-                                Icon(Icons.more_vert,size: 30.sp,color: Colors.white,),
+                                PopupMenuButton(
+                                  initialValue: 2,
+                                  icon: Icon(Icons.more_vert,color: Colors.white,size: 30.sp,),
+                                  itemBuilder: (context)=>[
+                                    PopupMenuItem(
+                                        child: InkWell(onTap: (){
+                                          reportdilaog();
+                                        },
+                                            child: Text("Report"))),
+                                    PopupMenuItem(child: InkWell(onTap: (){
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context){
+                                          return Expanded(
+                                            child: AlertDialog(
+                                              title: Text('Block Image',style: TextStyle(color: Colors.red),),
+                                              content: Text('Block Image  Please Enter Block.'),
+                                              actions: [
+                                                InkWell(onTap:(){
+                                                  dialog();
+                                                },
+                                                  child: Padding(
+                                                    padding: EdgeInsets.all(8.0),
+                                                    child: Container(
+                                                      child: Text("Block",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },child: Text("Block",))),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
@@ -143,4 +178,69 @@ class _Post_ScreenState extends State<Post_Screen> {
       ),
     );
   }
+  void reportdilaog(){
+    showModalBottomSheet(
+        backgroundColor: Colors.transparent,
+        context:context,
+        builder:(context){
+          return Container(
+            height: 150.h,
+            width: double.infinity,
+            decoration: BoxDecoration(borderRadius:BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)), color: Colors.black.withOpacity(0.4),),
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 3.w),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding:  EdgeInsets.symmetric(vertical:1.5.h),
+                        child: Container(height:0.5.h,width: 18.w,decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.grey,),),
+                      ),
+                    ),
+                    Align(alignment: Alignment.center,child: Text("Report",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 18.sp),)),
+                    SizedBox(height: 1.h,),
+                    Text("Why are you reporting this post?",style: TextStyle(color: Colors.white,fontSize:15.sp,fontWeight: FontWeight.w500 ),),
+                    SizedBox(height: 1.h,),
+                    Text("Your report is anonymous, except if you're reporting an intellectual property infringement. If someone is in immediate danger, call the local emergency services - don't wait.",style: TextStyle(color: Colors.white60),),
+                    DD("I just don't like it"),
+                    DD("it's spam"),
+                    DD("Nudity or sexual activity"),
+                    DD("Hate speech or symbols"),
+                    DD("Violence or dangerous organisations"),
+                    DD("False information"),
+                    DD("Bullying or harassment"),
+                    DD("Scam or fraud"),
+                    DD("Intellectual property violation"),
+                    DD("Suicide or self-injury"),
+                    DD("Sale of illegal or regulated goods"),
+                    DD("Eating disorders"),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+    );
+  }
+
+  Widget DD(String txt) {
+    return Column(
+      children: [
+        SizedBox(height: 1.h,),
+        InkWell(onTap: (){dialog();},child: Text("$txt",style: TextStyle(color: Colors.white,fontSize:15.sp,fontWeight: FontWeight.w500 ),)),
+      ],
+    );
+  }
+  Future<bool> dialog() async {
+    back();
+    return await false;
+  }
+
+  void back(){
+    Navigator.pushReplacementNamed(context, 'bottom');
+  }
+
 }

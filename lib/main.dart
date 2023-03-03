@@ -1,5 +1,7 @@
 import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:meetforvideo/PROVIDER/provider_screen.dart';
 import 'package:meetforvideo/VIEW/First_time.dart';
 import 'package:meetforvideo/VIEW/best/bestimage_screen.dart';
@@ -22,8 +24,12 @@ import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   await FaceCamera.initialize();
-  runApp(
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) => runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider<Home_Provider>(create:(context)=>Home_Provider()),
@@ -32,7 +38,7 @@ void main() async {
         builder: (context, orientation, deviceType){
           return   MaterialApp(
             debugShowCheckedModeBanner: false,
-              initialRoute: 'bottom',
+              //initialRoute: 'bottom',
               routes: {
                 '/':(contest)=>Splash_Screen(),
                 'ftime':(context)=>First_Time_Screen(),
@@ -55,5 +61,6 @@ void main() async {
         },
       ),
     ),
+   ),
   );
 }

@@ -47,6 +47,10 @@ dependencies:
   permission_handler: ^10.2.0
   cool_nav: ^0.1.0
   face_camera: ^0.0.6
+  google_mobile_ads: ^2.3.0
+  http: ^0.13.5
+  connectivity_plus: ^3.0.3
+  internet_connection_checker: ^1.0.0+1
 
 
 
