@@ -2,9 +2,10 @@ import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:meetforvideo/PROVIDER/provider_screen.dart';
 import 'package:meetforvideo/VIEW/First_time.dart';
+import 'package:meetforvideo/VIEW/best/bestimage_screen.dart';
 import 'package:meetforvideo/VIEW/best/bestvideo_screen.dart';
+import 'package:meetforvideo/VIEW/best/bvideo_screen.dart';
 import 'package:meetforvideo/VIEW/bottombar_screen.dart';
-import 'package:meetforvideo/VIEW/demo_screen.dart';
 import 'package:meetforvideo/VIEW/detail_screen.dart';
 import 'package:meetforvideo/VIEW/getstarted_screen.dart';
 import 'package:meetforvideo/VIEW/image_siderscreen.dart';
@@ -47,6 +48,8 @@ void main() async {
                 'post':(context)=>Post_Screen(),
                 'profile':(context)=>Profile_Screen(),
                 'vplay':(context)=>VideoPlay_Screen(),
+                'bimage':(context)=>Bestimage_Screen(),
+                'bvideo':(context)=>BestVideo_Screen(),
               },
           );
         },
