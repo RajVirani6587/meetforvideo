@@ -16,6 +16,11 @@ class Home_Provider extends ChangeNotifier{
     notifyListeners();
   }
 
+  String txtNamee = "";
+  String txtAge = "";
+  late String txtImage = "";
+  String txtCountry= "";
+  String txtGender = "";
 
   void playpause()
   {
@@ -33,7 +38,7 @@ class Home_Provider extends ChangeNotifier{
   ];
 
   List <Video>l1 = [
-    Video(con: "Afghanistan	",km: "0.4km",year: "19",TImage: "assets/image/Image.png",Image2: "assets/image/21.png",flag: "🇦🇫",Image: "assets/image/1.jpg",centry:  "21,Afghanistan",like:"5.6" , Name: "Anastasia" ,video: "assets/video/1.mp4"),
+    Video(con: "Afghanistan	",km: "0.4km",year: "19",TImage: "assets/image/Image.png",Image2: "assets/image/21.png",flag: "🇦🇫",Image: "assets/image/1.png",centry:  "21,Afghanistan",like:"5.6" , Name: "Anastasia" ,video: "assets/video/1.mp4"),
     Video(con: "Albania",km: "1.5km",year: "22",TImage: "assets/image/Image-1.png",Image2: "assets/image/22.png",flag: "🇦🇽",Image: "assets/image/2.png",centry:  "23,Albania",like:"7.8"   , Name: "Angelina " ,video: "assets/video/2.mp4"),
     Video(con: "Algeria	",km: "2.0km",year: "20",TImage: "assets/image/Image-2.png",Image2: "assets/image/23.png",flag: "🇦🇱",Image: "assets/image/3.png",centry:  "24,Algeria ",like:"8.5",   Name: "Annika " ,video: "assets/video/1.mp4"),
     Video(con: "Ando",km: "2.7km",year: "27",TImage: "assets/image/Image-3.png",Image2: "assets/image/24.png",flag: "🇩🇿",Image: "assets/image/4.png",centry:  "19,Andorra",like:"9.4",    Name: "Anya " ,video: "assets/video/2.mp4"),
@@ -63,7 +68,7 @@ class Home_Provider extends ChangeNotifier{
     Video(con: "Burundi	",km: "1.0km",year: "27",TImage: "assets/image/p37.png",Image2: "assets/image/48.png",flag: "🇧🇦",Image: "assets/image/28.png",centry: "24,Eswatini",like:"97.5",        Name: "Nadezhda ",video: "assets/video/2.mp4"),
     Video(con: "Israel	",km: "2.0km",year: "29",TImage: "assets/image/p38.png",Image2: "assets/image/49.png",flag: "🇧🇼",Image: "assets/image/29.png",centry: "26,Ethiopia",like:"99.4",        Name: "Ninotchka ",video: "assets/video/1.mp4"),
     Video(con: "Cabo Verde",km: "3.0km",year: "22",TImage: "assets/image/p39.png",Image2: "assets/image/50.png",flag: "🇧🇷",Image: "assets/image/30.png",centry: "28,Spain",like:"84.1",            Name: "Oksana ",video: "assets/video/2.mp4"),
-    Video(con: "Cambodia",km: "7.5km",year: "29",TImage: "assets/image/p20.png",Image2: "assets/image/1.jpg",flag: "🇻🇬",Image: "assets/image/31.png",centry: "30,Sri Lanka",like:"45.1"        ,Name: "Ol'ga ",video: "assets/video/1.mp4"),
+    Video(con: "Cambodia",km: "7.5km",year: "29",TImage: "assets/image/p20.png",Image2: "assets/image/1.png",flag: "🇻🇬",Image: "assets/image/31.png",centry: "30,Sri Lanka",like:"45.1"        ,Name: "Ol'ga ",video: "assets/video/1.mp4"),
     Video(con: "Cameroon",km: "8.4km",year: "21",TImage: "assets/image/p21.png",Image2: "assets/image/2.png",flag: "🇧🇳",Image: "assets/image/32.png",centry: "17,Sudan",like:"99",              Name: "Olechka ",video: "assets/video/2.mp4"),
     Video(con: "Canada",km: "6.4km",year: "23",TImage: "assets/image/p22.png",Image2: "assets/image/3.png",flag: "🇧🇬",Image: "assets/image/33.png",centry: "19,Suriname",like:"45.1",         Name: "Olien ",video: "assets/video/1.mp4"),
     Video(con: "Niger",km: "4.1km",year: "22",TImage: "assets/image/p23.png",Image2: "assets/image/4.png",flag: "🇧🇫",Image: "assets/image/34.png",centry: "21,Sweden",like:"12",             Name: "Olya ",video: "assets/video/2.mp4"),

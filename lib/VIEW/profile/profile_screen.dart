@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
-import 'package:meetforvideo/MODEL/slider_imagescreen.dart';
+import 'package:meetforvideo/PROVIDER/provider_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class Profile_Screen extends StatefulWidget {
@@ -13,9 +14,12 @@ class Profile_Screen extends StatefulWidget {
 }
 
 class _Profile_ScreenState extends State<Profile_Screen> {
+  Home_Provider ?home_providert;
+  Home_Provider ?home_providerf;
   @override
   Widget build(BuildContext context) {
-    txt n1 = ModalRoute.of(context)!.settings.arguments as txt;
+    home_providerf = Provider.of<Home_Provider>(context,listen: false);
+    home_providert = Provider.of<Home_Provider>(context,listen: true);
     return WillPopScope(
       onWillPop: ()async{
         return true;
@@ -67,16 +71,21 @@ class _Profile_ScreenState extends State<Profile_Screen> {
                       child: Column(
                         children: [
                           SizedBox(height: 15.h,),
-                          Detail("Username","${n1.name}"),
-                          Detail("Gender","${n1.gender}"),
-                          Detail("Age","${n1.age}"),
-                          Detail("Country","${n1.countey}"),
-                          Row(
-                            children: [
-                              Icon(Icons.logout,color: Colors.red,size: 30.sp,),
-                              SizedBox(width: 1.w,),
-                              Text("Logout",style: TextStyle(color: Colors.red,fontSize: 18.sp,),),
-                            ],
+                          Detail("Username","${home_providerf!.txtNamee}"),
+                          Detail("Gender","${home_providerf!.txtGender}"),
+                          Detail("Age","${home_providerf!.txtAge}"),
+                          Detail("Country","${home_providerf!.txtCountry}"),
+                          InkWell(
+                            onTap: (){
+                              Navigator.pushReplacementNamed(context,'privacy');
+                            },
+                            child: Row(
+                              children: [
+                                Icon(Icons.logout,color: Colors.red,size: 30.sp,),
+                                SizedBox(width: 1.w,),
+                                Text("Logout",style: TextStyle(color: Colors.red,fontSize: 18.sp,),),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -89,7 +98,7 @@ class _Profile_ScreenState extends State<Profile_Screen> {
                   width: 21.h,
                   decoration: BoxDecoration(shape: BoxShape.circle,border: Border.all(width: 3.sp,color: Colors.white)),
                   child: CircleAvatar(
-                    backgroundImage: FileImage(File(n1.image.toString())),
+                    backgroundImage: FileImage(File(home_providerf!.txtImage)),
                   ),
                 ),
               ],

@@ -18,6 +18,13 @@ class Bottom_Bar_Screen extends StatefulWidget {
 class _Bottom_Bar_ScreenState extends State<Bottom_Bar_Screen> {
   List WidgetsList=[Videocall_Screen(),Best_screen(),Post_Screen(),Profile_Screen(),];
   @override
+  void initState() {
+    super.initState();
+    setState(() {
+      Provider.of<Home_Provider>(context,listen: false).i=0;
+    });
+  }
+  @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: ()async{

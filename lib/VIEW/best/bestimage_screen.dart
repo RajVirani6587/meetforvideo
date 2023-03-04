@@ -57,29 +57,7 @@ class _Bestimage_ScreenState extends State<Bestimage_Screen> {
                               },
                                   child: Text("Report"))),
                           PopupMenuItem(child: InkWell(onTap: (){
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context){
-                                return Expanded(
-                                  child: AlertDialog(
-                                    title: Text('Block Image',style: TextStyle(color: Colors.red),),
-                                    content: Text('Block Image  Please Enter Block.'),
-                                    actions: [
-                                      InkWell(onTap:(){
-                                        dialog();
-                                      },
-                                        child: Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Container(
-                                            child: Text("Block",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            );
+                            Blockdialog();
                           },child: Text("Block",))),
                         ],
                     ),
@@ -140,6 +118,45 @@ class _Bestimage_ScreenState extends State<Bestimage_Screen> {
         }
     );
   }
+  void Blockdialog(){
+    showModalBottomSheet(
+        backgroundColor: Colors.transparent,
+        context:context,
+        builder:(context){
+          return Container(
+            height: 20.h,
+            width: double.infinity,
+            decoration: BoxDecoration(borderRadius:BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)), color: Colors.black.withOpacity(0.7),),
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 3.w),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 3.h,),
+                    Text("Block Image",style: TextStyle(color: Colors.red,fontSize: 18.sp),),
+                    Text("Block Image  Please Enter Block.",style: TextStyle(color: Colors.red),),
+                    SizedBox(height: 3.h,),
+
+                    InkWell(onTap: (){
+                      dialog();
+                    },
+                      child: Container(
+                        height: 7.h,
+                        width: 80.w,
+                        decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10.sp)),
+                        child: Center(child: Text("Block",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),)),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+    );
+  }
+
 
   Widget DD(String txt) {
     return Column(

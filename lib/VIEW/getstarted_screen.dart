@@ -13,7 +13,6 @@ class GETSTARTED_Screen extends StatefulWidget {
 class _GETSTARTED_ScreenState extends State<GETSTARTED_Screen> {
   @override
   Widget build(BuildContext context) {
-    txt n1 = ModalRoute.of(context)!.settings.arguments as txt;
     return Scaffold(
       body: Container(
         height: double.infinity,
@@ -66,7 +65,7 @@ class _GETSTARTED_ScreenState extends State<GETSTARTED_Screen> {
                      Text("Waiting for something special.",style: TextStyle(color: Colors.white,fontSize: 10.sp,letterSpacing: 2),),
                      SizedBox(height: 4.h,),
                      InkWell(onTap: (){
-                       Navigator.pushReplacementNamed(context,'bottom',arguments: n1);
+                       Navigator.pushReplacementNamed(context,'bottom');
                        showCustomDialog(context);
                      },child: Icon(Icons.arrow_forward,size:35.sp,color: Colors.white,)),
                    ],

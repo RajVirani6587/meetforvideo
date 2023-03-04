@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:meetforvideo/MODEL/slider_imagescreen.dart';
+import 'package:meetforvideo/PROVIDER/provider_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 class Detail_Screen extends StatefulWidget {
@@ -25,7 +26,8 @@ class _Detail_ScreenState extends State<Detail_Screen> {
   List<String> gender = ["Male","Female","others"];
 
   String select = 'Male';
-
+  Home_Provider ?home_providert;
+  Home_Provider ?home_providerf;
   List<String> contry =
   ['India','Pakistan','Bangladesh','Afghanistan','Angola',
     'Aruba','vietnam','egypt','saudi arabia','UAE','syria',
@@ -37,6 +39,8 @@ class _Detail_ScreenState extends State<Detail_Screen> {
   String selectContry = 'India';
   @override
   Widget build(BuildContext context) {
+    home_providerf = Provider.of<Home_Provider>(context,listen: false);
+    home_providert = Provider.of<Home_Provider>(context,listen: true);
     return Form(
       key: txtkey,
       child: Scaffold(
@@ -305,36 +309,32 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                           child: InkWell(
                             onTap: (){
                               if(txtkey.currentState!.validate() == true && f1.path.isEmpty==false){
-                                  txt n1 = txt(
-                                    age: txtage.text,
-                                    image: f1.path,
-                                    name: txtname.text,
-                                    countey: txtcountry.text,
-                                    gender: txtgender.text,
-                                  );
-                                  Navigator.pushReplacementNamed(context,'yourself',arguments: n1);
+                                 home_providerf!.txtAge = txtage.text;
+                                 home_providerf!.txtCountry = txtcountry.text;
+                                 home_providerf!.txtGender = txtgender.text;
+                                 home_providerf!.txtNamee = txtname.text;
+                                 home_providerf!.txtImage = f1.path;
+                                  Navigator.pushReplacementNamed(context,'yourself',);
                               }
                               else{
                                 showDialog(
                                   context: context,
                                   builder: (BuildContext context){
-                                    return Expanded(
-                                      child: AlertDialog(
-                                        title: Text('Red Alert',style: TextStyle(color: Colors.red),),
-                                        content: Text('Please Upload a Photo'),
-                                        actions: [
-                                          InkWell(onTap:(){
-                                            Navigator.pop(context);
-                                          },
-                                            child: Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Container(
-                                                child: Text("ok",style: TextStyle(fontSize: 20),),
-                                              ),
+                                    return AlertDialog(
+                                      title: Text('Red Alert',style: TextStyle(color: Colors.red),),
+                                      content: Text('Please Upload a Photo'),
+                                      actions: [
+                                        InkWell(onTap:(){
+                                          Navigator.pop(context);
+                                        },
+                                          child: Padding(
+                                            padding: EdgeInsets.all(8.0),
+                                            child: Container(
+                                              child: Text("ok",style: TextStyle(fontSize: 20),),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     );
                                   },
                                 );

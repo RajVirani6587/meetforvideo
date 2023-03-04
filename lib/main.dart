@@ -13,6 +13,7 @@ import 'package:meetforvideo/VIEW/getstarted_screen.dart';
 import 'package:meetforvideo/VIEW/image_siderscreen.dart';
 import 'package:meetforvideo/VIEW/intro_Screen.dart';
 import 'package:meetforvideo/VIEW/permission_screen.dart';
+import 'package:meetforvideo/VIEW/pivcy_screen.dart';
 import 'package:meetforvideo/VIEW/post/post_screen.dart';
 import 'package:meetforvideo/VIEW/profile/profile_screen.dart';
 import 'package:meetforvideo/VIEW/splash_screen.dart';
@@ -38,7 +39,7 @@ void main() async {
         builder: (context, orientation, deviceType){
           return   MaterialApp(
             debugShowCheckedModeBanner: false,
-              //initialRoute: 'bottom',
+             // initialRoute: 'bottom',
               routes: {
                 '/':(contest)=>Splash_Screen(),
                 'ftime':(context)=>First_Time_Screen(),
@@ -56,6 +57,7 @@ void main() async {
                 'vplay':(context)=>VideoPlay_Screen(),
                 'bimage':(context)=>Bestimage_Screen(),
                 'bvideo':(context)=>BestVideo_Screen(),
+                'privacy':(context)=>PrivacyPolicy_Screen(),
               },
           );
         },

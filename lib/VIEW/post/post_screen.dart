@@ -1,5 +1,11 @@
+import 'dart:io';
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:meetforvideo/PROVIDER/provider_screen.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +19,7 @@ class Post_Screen extends StatefulWidget {
 }
 
 class _Post_ScreenState extends State<Post_Screen> {
+
   Home_Provider? home_providert;
   Home_Provider? home_providerf;
   @override
@@ -117,40 +124,24 @@ class _Post_ScreenState extends State<Post_Screen> {
                                   ],
                                 ),
                                 PopupMenuButton(
-                                  initialValue: 2,
+                                  initialValue: 3,
                                   icon: Icon(Icons.more_vert,color: Colors.white,size: 30.sp,),
-                                  itemBuilder: (context)=>[
-                                    PopupMenuItem(
-                                        child: InkWell(onTap: (){
-                                          reportdilaog();
-                                        },
-                                            child: Text("Report"))),
-                                    PopupMenuItem(child: InkWell(onTap: (){
-                                      showDialog(
-                                        context: context,
-                                        builder: (BuildContext context){
-                                          return Expanded(
-                                            child: AlertDialog(
-                                              title: Text('Block Image',style: TextStyle(color: Colors.red),),
-                                              content: Text('Block Image  Please Enter Block.'),
-                                              actions: [
-                                                InkWell(onTap:(){
-                                                  dialog();
-                                                },
-                                                  child: Padding(
-                                                    padding: EdgeInsets.all(8.0),
-                                                    child: Container(
-                                                      child: Text("Block",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,),),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },child: Text("Block",))),
-                                  ],
+                                  itemBuilder: (context){
+                                   return [
+                                      PopupMenuItem(
+                                          child: InkWell(onTap: (){
+                                            reportdilaog();
+                                          },
+                                              child: Text("Report"))),
+                                      PopupMenuItem(
+                                          child: InkWell(onTap: (){
+                                            Blockdialog();
+                                          },child: Text("Block",))),
+                                      PopupMenuItem(child: InkWell(onTap: (){
+
+                                      },child: Text("Save")),)
+                                    ];
+                                  }
                                 ),
                               ],
                             ),
@@ -178,6 +169,9 @@ class _Post_ScreenState extends State<Post_Screen> {
       ),
     );
   }
+
+
+
   void reportdilaog(){
     showModalBottomSheet(
         backgroundColor: Colors.transparent,
@@ -217,6 +211,44 @@ class _Post_ScreenState extends State<Post_Screen> {
                     DD("Suicide or self-injury"),
                     DD("Sale of illegal or regulated goods"),
                     DD("Eating disorders"),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+    );
+  }
+  void Blockdialog(){
+    showModalBottomSheet(
+        backgroundColor: Colors.transparent,
+        context:context,
+        builder:(context){
+          return Container(
+            height: 20.h,
+            width: double.infinity,
+            decoration: BoxDecoration(borderRadius:BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)), color: Colors.black.withOpacity(0.7),),
+            child: Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 3.w),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 3.h,),
+                     Text("Block Image",style: TextStyle(color: Colors.red,fontSize: 18.sp),),
+                     Text("Block Image  Please Enter Block.",style: TextStyle(color: Colors.red),),
+                    SizedBox(height: 3.h,),
+
+                    InkWell(onTap: (){
+                       dialog();
+                     },
+                       child: Container(
+                        height: 7.h,
+                        width: 80.w,
+                        decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10.sp)),
+                        child: Center(child: Text("Block",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),)),
+                    ),
+                     )
                   ],
                 ),
               ),

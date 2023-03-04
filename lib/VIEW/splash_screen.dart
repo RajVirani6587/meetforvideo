@@ -47,7 +47,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   // }
   void isLogin()async{
       Timer(Duration(seconds: 7),
-            ()=>Navigator.pushReplacementNamed(context,'ftime'),
+            ()=>Navigator.pushReplacementNamed(context,'privacy'),
       );
    }
   getAdid()async{

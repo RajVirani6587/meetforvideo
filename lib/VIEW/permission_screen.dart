@@ -14,7 +14,6 @@ class Permission_Screen extends StatefulWidget {
 class _Permission_ScreenState extends State<Permission_Screen> {
   @override
   Widget build(BuildContext context) {
-    txt n1 = ModalRoute.of(context)!.settings.arguments as txt;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -108,7 +107,7 @@ class _Permission_ScreenState extends State<Permission_Screen> {
             SizedBox(height: 2.h,),
             InkWell(
               onTap: () async {
-                Navigator.pushReplacementNamed(context,'get',arguments: n1);
+                Navigator.pushReplacementNamed(context,'get');
                 Map<Permission, PermissionStatus> map = await[Permission.microphone, Permission.camera , Permission.storage].request();
                 if (await Permission.camera.isDenied) {
                   print("Camera Deny");

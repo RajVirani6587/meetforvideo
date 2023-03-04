@@ -13,7 +13,6 @@ class _Yourself_ScreenState extends State<Yourself_Screen> {
   int cnt = 0;
   @override
   Widget build(BuildContext context) {
-    txt n1 = ModalRoute.of(context)!.settings.arguments as txt;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -169,7 +168,7 @@ class _Yourself_ScreenState extends State<Yourself_Screen> {
                         children: [
                           InkWell(
                             onTap: (){
-                                Navigator.pushNamed(context,'permission',arguments: n1);
+                                Navigator.pushNamed(context,'permission');
                             },
                             child: Container(
                               height: 7.h,
@@ -183,7 +182,7 @@ class _Yourself_ScreenState extends State<Yourself_Screen> {
                           ),
                           InkWell(
                             onTap: (){
-                              Navigator.pushNamed(context,'permission',arguments: n1);
+                              Navigator.pushNamed(context,'permission');
                             },
                             child: Container(
                               height: 7.h,
@@ -226,3 +225,4 @@ class _Yourself_ScreenState extends State<Yourself_Screen> {
     );
   }
 }
+//ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("successfully Save image in Video_call folder")));
