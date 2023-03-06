@@ -1,6 +1,7 @@
 import 'package:face_camera/face_camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:meetforvideo/PROVIDER/provider_screen.dart';
 import 'package:meetforvideo/VIEW/First_time.dart';
@@ -37,9 +38,8 @@ void main() async {
       ],
       child:Sizer(
         builder: (context, orientation, deviceType){
-          return   MaterialApp(
+          return   GetMaterialApp(
             debugShowCheckedModeBanner: false,
-             // initialRoute: 'bottom',
               routes: {
                 '/':(contest)=>Splash_Screen(),
                 'ftime':(context)=>First_Time_Screen(),

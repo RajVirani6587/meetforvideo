@@ -8,6 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:meetforvideo/PROVIDER/provider_screen.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
@@ -137,9 +138,6 @@ class _Post_ScreenState extends State<Post_Screen> {
                                           child: InkWell(onTap: (){
                                             Blockdialog();
                                           },child: Text("Block",))),
-                                      PopupMenuItem(child: InkWell(onTap: (){
-
-                                      },child: Text("Save")),)
                                     ];
                                   }
                                 ),
@@ -169,8 +167,6 @@ class _Post_ScreenState extends State<Post_Screen> {
       ),
     );
   }
-
-
 
   void reportdilaog(){
     showModalBottomSheet(
